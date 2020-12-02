@@ -16,13 +16,14 @@ fn read_file_to_i32() -> Result<Vec<i32>, Box<dyn Error>> {
     Ok(number_list)
 }
 
-fn main() -> std::io::Result<()> {
+fn main() -> Result<(), Box<dyn Error>> {
     let number_list = read_file_to_i32().unwrap();
 
     for i in 0..(number_list.len()) {
         for j in i+1..(number_list.len()) {
             for k in j+1..(number_list.len()) {
                 if number_list[i] + number_list[j] + number_list[k] == 2020 {
+                    println!("Found the answer!");
                     println!("{}", number_list[i] * number_list[j] * number_list[k]);
                     return Ok(())
                 }
@@ -30,5 +31,6 @@ fn main() -> std::io::Result<()> {
         }
     }
 
+    println!("Couldn't find the answer :(");
     Ok(())
 }
