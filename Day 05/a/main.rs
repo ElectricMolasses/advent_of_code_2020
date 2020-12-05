@@ -16,7 +16,6 @@ fn num_valid_passports() -> Result<(), Box<dyn Error>> {
     }
     let mut highest_seat = 0;
     for item in rows {
-        // Remember to subtract one from your answer to convert to an index.
         let mut current_low: i32 = 0;
         let mut current_high: i32 = 127;
         for character in item[..7].chars() {
