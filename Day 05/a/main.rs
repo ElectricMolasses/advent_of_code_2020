@@ -52,10 +52,6 @@ fn num_valid_passports() -> Result<(), Box<dyn Error>> {
     }
     println!("{}", highest_seat);
 
-    // 128 * 8 seats
-    // 1024 seats
-    
-
     for i in 0..highest_seat {
         if (!seats.contains(&i)) {
             println!("{}", i);
