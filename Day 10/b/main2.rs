@@ -23,7 +23,7 @@ fn day_10() -> Result<(), Box<dyn Error>> {
     
     list.sort();
     list.push(list[list.len() - 1] + 3);
-    // Every numbers path has to calculate in both directions.
+    // Every numbers path has to calculate in both directions. ??????????
     let mut total: i64 = 1;
     for i in 0..list.len() {
         let mut paths: i64 = 0;
