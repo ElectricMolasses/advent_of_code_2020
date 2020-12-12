@@ -2,8 +2,6 @@ use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-use std::f32::consts::PI;
-
 // . Floor
 // L Empty Seat
 // # Occupied Seat
