@@ -51,9 +51,7 @@ fn write_with_masks(instructions: Vec<(String, String)>) -> HashMap<u64, u64> {
                 } else {
                     result.insert(key, write_value);
                 }
-                
             }
-            
         }
         if instruction.0.contains("mask") {
             mask = instruction.1;
@@ -125,6 +123,25 @@ fn mask_all_mem_addresses(mask: String, address: String) -> Vec<String> {
                 last_index = index;
                 partials = new_partials.clone();
             }
+        } if character != 'X' && index == mask.len() - 1 {
+            let mut new_partials: Vec<String> = Vec::new();
+
+            for partial in partials.clone() {
+                    let mut new_string: String = partial;
+
+                    for (inner_index, character) in mask[last_index+1..index + 1].chars().enumerate() {
+                        if character == '0' {
+                            new_string.push_str(&address[last_index+1+inner_index..last_index+1+inner_index+1]);
+                        } else {
+                            new_string.push_str(&"1");
+                        }
+                    }
+                    
+                    let mut new_string1: String = new_string.clone();
+                    new_partials.push(new_string1.clone());
+                }
+                last_index = index;
+                partials = new_partials.clone();
         }
     }
 
